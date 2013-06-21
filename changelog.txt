@@ -1,0 +1,382 @@
+SmartGit/Hg 4.5.5 (2013-06-17)
+==============================
+New Features, Improvements
+--------------------------
+- Various commands (Hg):
+  - "color" extension should be enabled to avoid warnings
+  - hg-executable should always be forced to work in English
+
+Fixed Bugs
+----------
+- Branches view: Push/Push To should be available for untracked branches,
+  even when there is no "origin" remote
+- Check for Updates:
+  - should prompt for proxy configuration, if currently configured host
+	  is not valid
+  - should report "infos" only once
+- Clone (SVN): possible problem
+- Index Editor: possible internal error when saving
+- Log:
+  - dialogs did not refresh after switching between branches on the
+	  same commit
+  - internal error in "Select Commit" dialog, if no commit was selected
+- Pull: sometimes dialog was just showing "and", but expanded area
+  was remaining empty
+- Pull/Push (SSH): may fail for private key passwords containing
+  non-ASCII characters
+- Update (Mercurial): should not move active bookmark
+- Various dialogs: possible internal error when trying to show a dialog
+  on an already closed window
+- Windows launchers: should change working directory to the installation
+
+
+SmartGit/Hg 4.5.4 (2013-05-28)
+==============================
+Fixed Bugs
+----------
+- Git:
+  - OS X: problems with Homebrew Git executables
+  - Fetch More: possible internal error depending on the selection and the
+    focus
+  - Interactive Rebase did not work if smartgit.command.show was set to true
+  - Log-related dialogs: internal error when closing in case of invalid HEAD
+  - Compare: possible internal error comparing two files with each other
+  - Blame: possible internal error
+- Linux: file watching broke after encountering inaccessible directories
+- internal error opening Git project with Hg repository (after having
+  replaced the repository outside SmartGit/Hg)
+- possible internal error for invalid ~/.ssh/config
+- GUI:
+  - internal error for CSS, Wiki and Matlab files
+  - possible internal error when a window is moved automatically
+  - Cherry Pick/Reverse-Merge dialogs in the Log (for selected merge commit)
+    missed mnemonics
+  - Switch to remote branch dialog: initial focus set incorrectly
+  - Pushable Commits, Edit Message or Join: if no message, an error icon is
+    shown without text
+
+
+SmartGit/Hg 4.5.3 (2013-05-17)
+==============================
+New Features, Improvements
+--------------------------
+- Git:
+  - Log: performance improvements
+  - Set Tracked Branch: now also allows to *change* a tracked branch
+- Hg:
+  - Compare and others: uses "ui.encoding" or "web.encoding" for displaying
+    file contents
+  - Branches: renamed "Delete" to "Close"
+- GUI:
+  - ability to disable syntax coloring by setting
+    "smartgit.textEditors.syntaxHiglighting=false"
+  - ability to show executed commands by settings
+    "smartgit.command.show=true"
+  - Help|SmartGit/Hg Documentation: available for all platforms
+
+Fixed Bugs
+----------
+- Git:
+  - Branches, Edit URL: possible internal error
+  - Ignore: did not work correctly for non-US-ASCII file names
+  - Log: possible internal error in case of invalid HEAD ref
+  - Pull/Sync: possible internal error reading configuration
+  - Pull: error output of rebase has not been shown
+  - Refresh:
+    - if refresh failed because of invalid config file, no appropriate
+      error has been shown
+	- possible "Unknown repository format" error
+	- possible internal error after executing commands
+	- nested repositories were scanned
+- Hg:
+  - Log:
+    - possible internal error for file log after committing a change to the
+	  shown file
+	- possible internal error when invoking on sub-directory
+  - Query|Open was missing and consequently no tools were shown in the
+    directories context menu
+- GUI:
+  - Compare and others:
+    - could become slow for text files with verrrrrrry long lines
+	- possible internal error related to syntax coloring
+	- Pascal support did not work properly
+  - Linux: newly added table columns have zero-width
+- possible memory leak while loading images
+
+
+SmartGit/Hg 4.5.2 (2013-05-03)
+==============================
+New Features, Improvements
+--------------------------
+- Syntax coloring: added PHP support
+- Update check: added VM property smartgit.updateCheck.oldBuildsToPreserve to
+  limit the number of latest builds which should be locally kept
+
+Fixed Bugs
+----------
+- Git:
+  - Conflict Solver: could not be opened on "Conflicted (both added)" files
+  - Ignore: empty lines and empty comments were not preserved in .gitignore
+  - Log-related dialogs: possible internal error when invoking
+  - various commands: Git error for old Git versions (1.7.1)
+  - remote commands: process-hangs-dialog occurred even if the master-password-
+    dialog was showing
+  - Stage Hunk: possible internal error for files with inconsistent line
+    separators
+- Hg:
+  - Log:
+    - non-ASCII characters of committer names were not displayed correctly
+    - possible disjoint trees when logging working directory which points to
+      older commit
+    - File log: latest commit not always was displayed
+- GUI:
+  - Preferences: possible internal error closing the preferences if an Blame
+    had been opened and closed before
+  - Delete was missing in the context menu for files
+  - continues "Password store could not be accessed" warning if no passwords
+    were stored
+
+
+SmartGit/Hg 4.5.1 (2013-04-27)
+==============================
+New Features, Improvements
+--------------------------
+- Commit: when invoked from Commit Message window, it should work on
+  selected directory (not file)
+
+Fixed Bugs
+----------
+- Master password possibly becomes reset
+- Setup/Clone: can't access hosting providers like GitHub
+
+
+SmartGit/Hg 4.5 (2013-04-26)
+============================
+no changes
+
+
+SmartGit/Hg 4.5 rc 3 (2013-04-24)
+=================================
+Fixed Bugs
+----------
+- Blame: does not update when changing syntax colors in the preferences
+- SVN:
+  - Log: possible internal error related to duplicate stashes
+
+
+SmartGit/Hg 4.5 rc 2 (2013-04-22)
+=================================
+New Features, Improvements
+--------------------------
+- Autoupdate: additional "Show Changelog" link for notification
+  on successful download of new version
+- Change Preview and others (Hg): performance improvements in case
+  of large repositories
+
+Fixed Bugs
+----------
+- Commit: "Commit All" option for Merge commits did not commit
+  working tree changes of staged file
+- Compare: Connector repaint problems
+- Delete Remote Branch: inconsistent dialogs for project and log window
+- Pull (SVN): possible internal error for certain (rare) constellations
+- Push (SVN): new branches couldn't be pushed to additional Git remote
+- Setup: possible internal error when configuring hosting provider
+- Startup: problems with --log and --blame options
+- Preferences: master password should not be requested
+  when showing the preferences
+
+
+Fixed Bugs
+----------
+- Hg:
+  - Refresh (Windows): possible internal error related to case-changed files
+- Compare:
+  - horizontal hunk borders might draw over text depending on used font/size
+  - [<<], [X] and [>>] buttons could be invoked by clicking with any mouse key
+- Startup (Log, Blame): hangs at splash screen if invalid file has been
+  passed as command line parameter
+- Startup (Blame): possible internal error when calling for invalid file
+
+
+SmartGit/Hg 4.5 rc 1 (2013-04-17)
+=================================
+New Features, Improvements
+--------------------------
+- Stash on demand: honors last selected "Add Untracked" option
+- Syntax coloring: support for LLVM, Matlab and Rust
+- Tools menu: added mnemonics
+
+Fixed Bugs
+----------
+- Hg:
+  - Refresh (Windows): possible internal error related to case-changed files
+- Compare:
+  - horizontal hunk borders might draw over text depending on used font/size
+  - [<<], [X] and [>>] buttons could be invoked by clicking with any mouse key
+- Startup (Log, Blame): hangs at splash screen if invalid file has been
+  passed as command line parameter
+- Startup (Blame): possible internal error when calling for invalid file
+
+
+SmartGit/Hg 4.5 preview 4 (2013-04-12)
+======================================
+New Features, Improvements
+--------------------------
+- Git:
+  - Branches: added Rebase to context menu
+  - http authentication uses SmartGit's proxy configuration
+  - Pull, Fetch: moved Fetch button to Pull dialog
+  - Submodules: Initialize now works also for missing/empty submodules
+  - Windows: command line options --log and --blame are now case-insensitive
+- Syntax highlighting: added support for Basic, Dart, Erlang, Mumps, Pascal,
+  R/Rd and Tcl
+
+Fixed Bugs
+----------
+- Git:
+  - Changes: discarding an inner-line change did not show a confirmation dialog
+  - Commit: did warn about untracked/missing files even if they are not
+    selected automatically for commit (according to Preferences options)
+  - Fetch More dialog: could become too large
+  - Pull and others, stash-on-demand: asked to stash even for conflicts
+  - Push To: was not available with focus in Directories
+- Conflict Solver: possible internal error when closing too quickly
+- Syntax highlighting: possible internal error
+- OS X, native SSH-client: if SSH_ASKPASS already is set, it will not set by
+  SmartGit any more
+- OS X: Delete to Trash on a symlink deleted the target instead of the link
+- Windows, High-contrast theme:
+  - crash on startup
+  - checkboxes, e.g. in Log, Branches, were not readable (yellow on white)
+- Update check:
+  - Manual check: when selecting Download, the update was not started
+    immediately
+  - possible internal error in case of connection problems
+
+
+SmartGit/Hg 4.5 preview 3 (2013-04-07)
+======================================
+New Features, Improvements
+--------------------------
+- Git:
+  - Blame:
+    - improved performance for repositories containing many renames
+  - Changes tool window:
+    - added context menu entries for Stage/Unstage Hunk/Inner-line Change
+    - for unresolved conflicts HEAD is shown instead of nothing
+    - "HEAD" and "Working Tree" show tooltip text
+  - Commit - help to avoid incomplete commits:
+    - warn when trying to Push but not committing all changes
+    - warn when trying to commit a Merge with unstaged changes
+  - Log:
+    - Select Next/Previous Commit: commit selection dialog simplified
+    - (File): improved performance for repositories containing many renames
+    - significant performance improvements and reduced memory consumption
+      for root logs on large repositories
+    - Commits: speed search searches for refs, too
+    - Mergable coloring now honors anchor
+    - anchor commits are highlighted
+  - Pushable Commits: performance improvements for large repositories
+- SVN:
+  - support for additional Git remotes
+- External Tools: now have accelerator support
+- OS X bundle as .dmg instead of .tar.gz
+
+Fixed Bugs
+----------
+- Git:
+  - Blame:
+    - possible internal error related to renamed files
+  - Log:
+    - log for renamed file may not load properly or not at all
+    - (File): might start with wrong HEAD
+  - Merge: double-clicking the toolbar button caused internal error
+- SVN:
+  - Delete, Fetch More and Rename were enabled
+  - Push: stashes could be duplicated
+- Docking: for some layouts tool windows sizes change slightly with each
+  reopening of the window
+- OS X: added work-around to fix some Java-7-specific bugs (e.g.
+  https://bugs.eclipse.org/bugs/show_bug.cgi?id=388886 and
+  https://bugs.eclipse.org/bugs/show_bug.cgi?id=399845)
+- tooltips often were hidden too quickly
+- Syntax, Language configuration: *.h was missing from C/C++
+- progress often jumped back and force
+
+
+SmartGit/Hg 4.5 preview 2 (2013-03-25)
+======================================
+New Features, Improvements
+--------------------------
+- Git:
+  - Pull, Switch, Checkout:
+    - if command fails because of local changes, stashing is offered
+      ("Stash-confirmation")
+  - Switch, Checkout: moved "Throwaway local changes" option as Discard-option
+    from command confirmation dialog to "Stash-confirmation"
+  - Log:
+    - double-clicking a commit for non-file-logs to checkout that commit
+    - only "Local Branches" expanded by default
+- Tools: support for ${repositoryRootPath}
+
+Fixed Bugs
+----------
+- Annotate/Blame: did not show "before" revision of merged revisions
+- Log:
+  - newly added branch not selected by default (if stashes exist)
+  - "Lost Heads" sometimes did not work
+- Open, Tools: import from old File tools changed order causing another tool to
+  be opened
+- Commit, Select From Log: did not put focus reliable to message input field
+- Project Manager: remained open after opening a project with confirmation
+  dialog
+- auto-update: internal error
+
+
+SmartGit/Hg 4.5 preview 1 (2013-03-21)
+======================================
+New Features, Improvements
+--------------------------
+- Git
+  - Add Remote: only optionally check remote server connection (to improve 
+    gitosis support)
+  - Annotate/Blame:
+    - more compact display of authors and dates
+    - hyperlinks for SHAs
+    - show newer and previous line contents
+    - Show Changes
+    - ability to open Log for focused line
+  - Changes tool window:
+    - ability to stage and unstage hunks and inner-line changes
+     (with simple Undo support)
+    - switching between HEAD-Index and Index-Working Tree using side buttons
+  - Compare 2 Files: Show Changes for 2 selected files now asks what to compare
+  - separate Fetch command
+  - Log:
+    - File log:
+      - improved performance
+      - irrelevant merge commits are shown only optionally
+      - display merge commits for which only the size, but not the main-line
+        has been changed
+    - Branches: Reveal Commit for HEAD and stash nodes
+  - Merge: shorter default commit messages (no "refs/heads/..." any more)
+- Pushable Commits: ability to open Log with commit preselected
+- File Compare, Merge: syntax coloring (colors and file types configurable
+  in the preferences)
+- auto-update to new versions
+- configurable Tools menu items, unifying Directory Tool and File Tools,
+  items occur in directory or file context menu
+- Search input field: ESC now clears the filter and moves focus to table
+
+Fixed Bugs
+----------
+- Git:
+  - Refresh: possible incompatibility with "git status" when core.filemode and
+    core.symlinks are not defined at all
+- GUI:
+  - a modal dialog in one window might block the work-flow in another window
+  - OS X: SmartGit prevented a clean system shutdown
+  - Linux: work-around for Stash-related toolbar buttons causing too wide
+    window
+- possible internal error in combination with built-in SSH client
